@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jul 20 12:06:04 2025
+
+@author: José Malhó
+"""
+
+services:
+  - type: web
+    name: fastapi-webhook-test
+    runtime: python
+    buildCommand: ""
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    plan: free
+    envVars: []
