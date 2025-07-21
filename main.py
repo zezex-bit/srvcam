@@ -50,16 +50,15 @@ async def get_matrix_b():
 
 ############
 
+results_ab = []
 
-results_b = []
-
-@app.post("/webhook/b/results")
-async def receive_results_b(request: Request):
+@app.post("/webhook/ab/results")
+async def receive_combined_results(request: Request):
     data = await request.json()
-    print("📊 Calculated result received for Matrix B:", data)
-    results_b.append(data)
-    return {"status": "calculation received"}
+    print("🧮 Combined result received:", data)
+    results_ab.append(data)
+    return {"status": "ok"}
 
-@app.get("/data/b/results")
-async def get_results_b():
-    return results_b
+@app.get("/data/ab/results")
+async def get_combined_results():
+    return results_ab
