@@ -45,3 +45,21 @@ async def get_matrix_b():
 
 
 ############
+
+#Receive Results
+
+############
+
+
+results_b = []
+
+@app.post("/webhook/b/results")
+async def receive_results_b(request: Request):
+    data = await request.json()
+    print("📊 Calculated result received for Matrix B:", data)
+    results_b.append(data)
+    return {"status": "calculation received"}
+
+@app.get("/data/b/results")
+async def get_results_b():
+    return results_b
